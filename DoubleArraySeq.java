@@ -64,7 +64,11 @@ public class DoubleArraySeq implements Cloneable
    **/   
    public DoubleArraySeq( )
    {
-      // Implemented by student.
+      this.data[]=new int[10];
+      this.manyItems=10;
+      this.currentIndex=0;
+      if(){
+      throw (OutOfMemoryError)
    }
      
 
@@ -86,7 +90,11 @@ public class DoubleArraySeq implements Cloneable
    **/   
    public DoubleArraySeq(int initialCapacity)
    {
-      // Implemented by student.
+       this.data[]=new int[initialCapacity];
+            this.manyItems=initialCapacity;
+            this.currentIndex=0;
+            if(){
+            throw (OutOfMemoryError)
    }
         
  
