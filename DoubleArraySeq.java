@@ -64,11 +64,9 @@ public class DoubleArraySeq implements Cloneable
    **/   
    public DoubleArraySeq( )
    {
-      this.data[]=new int[10];
-      this.manyItems=10;
+      this.data[]=new double[10];
+      this.manyItems=0;
       this.currentIndex=0;
-      if(){
-      throw (OutOfMemoryError)
    }
      
 
@@ -90,11 +88,14 @@ public class DoubleArraySeq implements Cloneable
    **/   
    public DoubleArraySeq(int initialCapacity)
    {
-       this.data[]=new int[initialCapacity];
-            this.manyItems=initialCapacity;
+       if (initialCapacity < 0)
+         throw new IllegalArgumentException
+         ("The initialCapacity is negative: " + initialCapacity);
+
+       this.data[]=new double[initialCapacity];
+            this.manyItems=0;
             this.currentIndex=0;
-            if(){
-            throw (OutOfMemoryError)
+          
    }
         
  
@@ -119,7 +120,16 @@ public class DoubleArraySeq implements Cloneable
    **/
    public void addAfter(double element)
    {
-      // Implemented by student.
+   if (manyItems == data.length)
+         {  // Ensure twice as much space as we need.
+            ensureCapacity((manyItems + 1)*2);
+         }
+   
+        data[currentElement+1]=element
+        manyitems++;
+        return void;
+        
+        
    }
 
 
@@ -266,8 +276,15 @@ public class DoubleArraySeq implements Cloneable
    **/
    public void ensureCapacity(int minimumCapacity)
    {
-      // Implemented by student.
-   }
+      double[ ] biggerArray;
+      
+      if (data.length < minimumCapacity)
+      {
+         biggerArray = new int[minimumCapacity];
+         System.arraycopy(data, 0, biggerArray, 0, manyItems);
+         data = biggerArray;
+      }
+   }   
 
    
    /**
