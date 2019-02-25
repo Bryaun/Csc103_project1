@@ -37,7 +37,7 @@
 *   March 5, 2002
 ******************************************************************************/
 public class DoubleArraySeq implements Cloneable
-{
+{ 
    // Invariant of the DoubleArraySeq class:
    //   1. The number of elements in the sequences is in the instance variable 
    //      manyItems.
