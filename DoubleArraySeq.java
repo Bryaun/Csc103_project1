@@ -64,9 +64,9 @@ public class DoubleArraySeq implements Cloneable
    **/   
    public DoubleArraySeq( )
    {
-      this.data[]=new double[10];
-      this.manyItems=0;
-      this.currentIndex=0;
+      data=new double[10];
+      manyItems=0;
+      currentIndex=0;
    }
      
 
@@ -92,9 +92,9 @@ public class DoubleArraySeq implements Cloneable
          throw new IllegalArgumentException
          ("The initialCapacity is negative: " + initialCapacity);
 
-       this.data[]=new double[initialCapacity];
-            this.manyItems=0;
-            this.currentIndex=0;
+            data=new double[initialCapacity];
+            manyItems=0;
+            currentIndex=0;
           
    }
         
@@ -125,9 +125,9 @@ public class DoubleArraySeq implements Cloneable
             ensureCapacity((manyItems + 1)*2);
          }
    
-        data[currentElement+1]=element
+        data[currentElement+1]=element;
         manyitems++;
-        return void;
+        return;
         
         
    }
@@ -397,6 +397,65 @@ public class DoubleArraySeq implements Cloneable
          data = trimmedArray;
       }
    }
+   
+   
+   
+   public void setCurrentLast(){
+      if (manyItems==0)
+         throw new IllegalStateException();
+      else
+         currentIndex=manyItems-1;
+      return;
+   }
+      
+   public double getElement(int num){
+      if (manyItems==0||num>manyItems)
+         throw new IllegalStateException();
+      else
+         return data[num];
+
+   }    
+    
+   public void setCurrent(int num){
+      if (manyItems==0||num>manyItems)
+         throw new IllegalStateException();
+      else
+         currentIndex=num-1;
+      return;
+
+   }  
+   public void addFront (int num){
+       if (manyItems == data.length)
+         {  // Ensure twice as much space as we need.
+            ensureCapacity((manyItems + 1)*2);
+         }
+       int i=manyItems-1;
+       double j;  
+       while(i!=-1){
+         j=data[i];
+         data[i+1]=j;
+         i--;
+       }
+       currentIndex=0;
+       data[0]=num;
+       return;
+  }  
+  
+public void removeFront (){
+       if (manyItems == data.length)
+         {  // Ensure twice as much space as we need.
+            ensureCapacity((manyItems + 1)*2);
+         }
+       int i=1;
+       double j;  
+       while(i!=manyItems){
+         j=data[i];
+         data[i-1]=j;
+         i++;
+       }
+       return;
+  }     
+   
       
 }
            
