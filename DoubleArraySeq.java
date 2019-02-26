@@ -125,8 +125,8 @@ public class DoubleArraySeq implements Cloneable
             ensureCapacity((manyItems + 1)*2);
          }
    
-        data[currentElement+1]=element;
-        manyitems++;
+        data[currentIndex+1]=element;
+        manyItems++;
         return;
         
         
@@ -280,10 +280,11 @@ public class DoubleArraySeq implements Cloneable
       
       if (data.length < minimumCapacity)
       {
-         biggerArray = new int[minimumCapacity];
+         biggerArray = new double[minimumCapacity];
          System.arraycopy(data, 0, biggerArray, 0, manyItems);
          data = biggerArray;
       }
+      return;
    }   
 
    
